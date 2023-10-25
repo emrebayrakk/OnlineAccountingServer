@@ -3,10 +3,15 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.CompanyService;
+using OnlineAccountingServer.Domain;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
+using OnlineAccountingServer.Domain.Repositories.UCAFRepositories;
+using OnlineAccountingServer.Persistance;
 using OnlineAccountingServer.Persistance.Context;
+using OnlineAccountingServer.Persistance.Repositories.UCAFRepositories;
 using OnlineAccountingServer.Persistance.Services.AppServices;
-using OnlineAccountingServer.Presentation;
+using OnlineAccountingServer.Persistance.Services.CompanyServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +23,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUCAFCommandRepository, UCAFCommandRepository>();
+builder.Services.AddScoped<IUCAFService, UCAFService>();
+builder.Services.AddScoped<IUCAFQueryRepository, UCAFQueryRepository>();
+builder.Services.AddScoped<IContextService, ContextService>();
 
-builder.Services.AddControllers().AddApplicationPart(typeof(AssemblyReference).Assembly);
+builder.Services.AddControllers().AddApplicationPart(typeof(OnlineAccountingServer.Presentation.AssemblyReference).Assembly);
 
 
 
