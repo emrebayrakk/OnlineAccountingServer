@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineAccountingServer.Application\OnlineAccountingServer.Application.csproj" />
+  </ItemGroup>
+
 </Project>

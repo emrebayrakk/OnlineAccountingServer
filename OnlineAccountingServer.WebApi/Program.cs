@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using OnlineAccountingServer.Domain.AppEntities.Identity;
 using OnlineAccountingServer.WebApi.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
