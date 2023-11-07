@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Application.Services.AppService;
 
 namespace OnlineAccountingServer.Application.Features.RoleFeature.Commands.UpdateRole
