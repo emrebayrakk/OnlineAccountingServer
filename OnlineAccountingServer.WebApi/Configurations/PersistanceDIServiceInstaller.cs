@@ -21,6 +21,7 @@ namespace OnlineAccountingServer.WebApi.Configurations
             #region Services
             services.AddScoped<IUCAFService, UCAFService>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IRoleService, RoleService>();
             #endregion
 
             #region Repositories

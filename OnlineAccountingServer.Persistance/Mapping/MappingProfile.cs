@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
 using OnlineAccountingServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
+using OnlineAccountingServer.Application.Features.RoleFeature.Commands.CreateRole;
 using OnlineAccountingServer.Domain.AppEntities;
+using OnlineAccountingServer.Domain.AppEntities.Identity;
 using OnlineAccountingServer.Domain.CompanyEntities;
 
 namespace OnlineAccountingServer.Persistance.Mapping
@@ -10,8 +12,9 @@ namespace OnlineAccountingServer.Persistance.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<CreateCompanyRequest, Company>().ReverseMap();
-            CreateMap<CreateUCAFRequest, UniformChartOfAccount>().ReverseMap();
+            CreateMap<CreateCompanyRequest, Company>();
+            CreateMap<CreateUCAFRequest, UniformChartOfAccount>();
+            CreateMap<CreateRoleRequest,AppRole>();
         }
     }
 }
