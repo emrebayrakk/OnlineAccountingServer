@@ -1,22 +1,23 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using OnlineAccountingServer.Application.Abstractions;
+using OnlineAccountingServer.Application.Messaging;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
 
 namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Login
 {
-    public class LoginHandler : IRequestHandler<LoginRequest, LoginResponse>
+    public class LoginCommandHandler : ICommandHandler<LoginCommand,LoginCommandResponse>
     {
         private readonly IJwtProvider _jwtProvider;
         private readonly UserManager<AppUser> _userManager;
 
-        public LoginHandler(IJwtProvider jwtProvider, UserManager<AppUser> userManager)
+        public LoginCommandHandler(IJwtProvider jwtProvider, UserManager<AppUser> userManager)
         {
             _jwtProvider = jwtProvider;
             _userManager = userManager;
         }
 
-        public async Task<LoginResponse> Handle(LoginRequest request, CancellationToken cancellationToken)
+        public async Task<LoginCommandResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = _userManager.Users.Where(a => a.Email == request.EmailOrUserName || a.UserName == request.EmailOrUserName).FirstOrDefault();
             if (user == null) throw new Exception("User Not Found!");
@@ -25,13 +26,11 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeature
             if (!checkUser) throw new Exception("Password Is Wrong!");
 
             List<string> roles = new();
-            LoginResponse response = new()
-            {
-                Email = user.Email,
-                NameLastName = user.NameLastName,
-                UserId = user.Id,
-                Token = await _jwtProvider.CreateTokenAsync(user, roles)
-            };
+            LoginCommandResponse response = new(
+                user.Email,
+                user.NameLastName,
+                user.Id,
+                await _jwtProvider.CreateTokenAsync(user, roles));
             return response;
         }
     }

@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace OnlineAccountingServer.Application.Features.RoleFeature.Commands.CreateRole
 {
-    public sealed class CreateRoleResponse
-    {
-        public string Message { get; set; } = "Succesfull";
-    }
+    public sealed record CreateRoleCommandResponse(string Message = "Succesfull");
 }

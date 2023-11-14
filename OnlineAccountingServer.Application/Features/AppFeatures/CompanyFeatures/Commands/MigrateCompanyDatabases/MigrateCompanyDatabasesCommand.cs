@@ -1,0 +1,8 @@
+﻿using MediatR;
+using OnlineAccountingServer.Application.Messaging;
+
+namespace OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.MigrateCompanyDatabase
+{
+    public sealed record MigrateCompanyDatabaseRequest() : ICommand<MigrateCompanyDatabasesCommandResponse>;
+    
+}

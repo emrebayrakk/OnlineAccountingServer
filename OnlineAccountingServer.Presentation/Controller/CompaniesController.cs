@@ -12,7 +12,7 @@ namespace OnlineAccountingServer.Presentation.Controller
         {
         }
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateCompany(CreateCompanyRequest createCompany)
+        public async Task<IActionResult> CreateCompany(CreateCompanyCommand createCompany)
         {
            var response = await _mediator.Send(createCompany);
             return Ok(response);

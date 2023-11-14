@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace OnlineAccountingServer.Application.Features.RoleFeature.Commands.DeleteRole
 {
-    public sealed class DeleteRoleResponse
-    {
-        public string Message { get; set; } = "Succesfull";
-    }
+    public sealed record DeleteRoleCommandResponse(string Message = "Succesfull");
 }
