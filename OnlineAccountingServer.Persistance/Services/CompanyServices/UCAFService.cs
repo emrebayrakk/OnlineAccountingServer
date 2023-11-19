@@ -23,7 +23,7 @@ namespace OnlineAccountingServer.Persistance.Services.CompanyServices
             _mapper = mapper;
         }
 
-        public async Task CreateUcafAsync(CreateUCAFCommand request)
+        public async Task CreateUcafAsync(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
             _context = (CompanyDbContext)_contextService.CreateDbContextInstance(request.CompanyId);
             _commandRepository.SetDbContextInstance(_context);
@@ -31,8 +31,8 @@ namespace OnlineAccountingServer.Persistance.Services.CompanyServices
 
             var req = _mapper.Map<UniformChartOfAccount>(request);
             req.Id = Guid.NewGuid().ToString();
-            await _commandRepository.AddAsync(req);
-            await _unitOfWork.SaveChangesAsync();
+            await _commandRepository.AddAsync(req, cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
     }
 }

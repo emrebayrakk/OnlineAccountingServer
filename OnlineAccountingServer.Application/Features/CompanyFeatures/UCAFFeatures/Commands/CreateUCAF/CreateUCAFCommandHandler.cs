@@ -15,7 +15,7 @@ namespace OnlineAccountingServer.Application.Features.CompanyFeatures.UCAFFeatur
 
         public async Task<CreateUCAFCommandResponse> Handle(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
-            await _ucafService.CreateUcafAsync(request);
+            await _ucafService.CreateUcafAsync(request,cancellationToken);
             return new();
         }
     }

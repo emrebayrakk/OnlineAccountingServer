@@ -12,7 +12,7 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeature
         }
         public async Task<CreateCompanyCommandResponse> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
-            await _companyService.CreateCompany(request);
+            await _companyService.CreateCompany(request,cancellationToken);
             return new();
         }
     }

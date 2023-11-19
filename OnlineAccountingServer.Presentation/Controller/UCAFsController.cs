@@ -12,9 +12,9 @@ namespace OnlineAccountingServer.Presentation.Controller
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateCompany(CreateUCAFCommand request)
+        public async Task<IActionResult> CreateCompany(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(request);
+            var response = await _mediator.Send(request,cancellationToken);
             return Ok(response);
 
         }

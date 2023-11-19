@@ -9,6 +9,6 @@ namespace OnlineAccountingServer.Application.Services.CompanyService
 {
     public interface IUCAFService
     {
-        Task CreateUcafAsync(CreateUCAFCommand request);
+        Task CreateUcafAsync(CreateUCAFCommand request, CancellationToken cancellationToken);
     }
 }
