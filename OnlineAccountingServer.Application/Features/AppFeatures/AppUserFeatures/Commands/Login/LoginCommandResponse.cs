@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Login
+namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Login
 {
     public sealed record LoginCommandResponse(string Token,
          string Email,

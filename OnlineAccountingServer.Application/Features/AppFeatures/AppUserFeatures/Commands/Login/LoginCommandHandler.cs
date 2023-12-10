@@ -4,9 +4,9 @@ using OnlineAccountingServer.Application.Abstractions;
 using OnlineAccountingServer.Application.Messaging;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
 
-namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Login
+namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Login
 {
-    public class LoginCommandHandler : ICommandHandler<LoginCommand,LoginCommandResponse>
+    public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginCommandResponse>
     {
         private readonly IJwtProvider _jwtProvider;
         private readonly UserManager<AppUser> _userManager;

@@ -2,7 +2,7 @@
 using OnlineAccountingServer.Application.Messaging;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
 
-namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Register
+namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Register
 {
     public sealed class RegisterCommandHandler : ICommandHandler<RegisterCommand, RegisterCommandResponse>
     {
@@ -24,7 +24,7 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeature
                 Id = Guid.NewGuid().ToString(),
                 NameLastName = request.nameLastName,
             };
-            _userManager.CreateAsync(userAdd,request.password).Wait();
+            _userManager.CreateAsync(userAdd, request.password).Wait();
             RegisterCommandResponse response = new();
 
             return response;

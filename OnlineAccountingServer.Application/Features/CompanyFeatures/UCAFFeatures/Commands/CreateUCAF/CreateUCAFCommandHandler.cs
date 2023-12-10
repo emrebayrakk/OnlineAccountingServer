@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using OnlineAccountingServer.Application.Messaging;
 using OnlineAccountingServer.Application.Services.CompanyService;
+using OnlineAccountingServer.Domain.CompanyEntities;
 
 namespace OnlineAccountingServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF
 {
@@ -15,6 +16,9 @@ namespace OnlineAccountingServer.Application.Features.CompanyFeatures.UCAFFeatur
 
         public async Task<CreateUCAFCommandResponse> Handle(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
+            UniformChartOfAccount ucaf = await _ucafService.GetByCode(request.Code);
+            if (ucaf != null) throw new Exception("Error");
+
             await _ucafService.CreateUcafAsync(request,cancellationToken);
             return new();
         }

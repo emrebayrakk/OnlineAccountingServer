@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Register
+namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Register
 {
     public sealed class RegisterCommandValidator : AbstractValidator<RegisterCommand>
     {
