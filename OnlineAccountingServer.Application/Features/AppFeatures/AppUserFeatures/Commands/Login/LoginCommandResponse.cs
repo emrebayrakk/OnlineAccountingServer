@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace OnlineAccountingServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Login
 {
-    public sealed record LoginCommandResponse(string Token,
+    public sealed record LoginCommandResponse(
          string Email,
          string UserId,
-         string NameLastName
+         string NameLastName,
+         string Token
          );
 }
