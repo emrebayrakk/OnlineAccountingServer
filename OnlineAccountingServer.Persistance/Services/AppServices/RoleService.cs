@@ -25,6 +25,15 @@ namespace OnlineAccountingServer.Persistance.Services.AppServices
             await _roleManager.CreateAsync(role);
         }
 
+        public async Task AddRangeAsync(IEnumerable<AppRole> roles)
+        {
+            foreach (var item in roles)
+            {
+                await _roleManager.CreateAsync(item);
+            }
+            
+        }
+
         public async Task DeleteAsync(AppRole appRole)
         {
             await _roleManager.DeleteAsync(appRole);

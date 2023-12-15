@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OnlineAccountingServer.Application.Features.RoleFeature.Commands.CreateRole
 {
     public sealed record CreateRoleCommand(
-        string Name,
-        string Code
+        string Code,
+        string Name
         ) : ICommand<CreateRoleCommandResponse>;
 }
