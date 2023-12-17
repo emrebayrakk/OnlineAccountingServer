@@ -1,32 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Domain.Abstraction;
-using OnlineAccountingServer.Domain.Repositories;
-using OnlineAccountingServer.Persistance.Context;
+using OnlineAccountingServer.Domain.Repositories.GenericRepositories.CompanyDbContext;
 
-namespace OnlineAccountingServer.Persistance.Repositories
+namespace OnlineAccountingServer.Persistance.Repositories.GenericRepositories.CompanyDbContext
 {
-    public class CommandRepository<T> : ICommandRepository<T> where T : Entity
+    public class CompanyCommandRepository<T> : ICompanyCommandRepository<T> where T : Entity
     {
-        private CompanyDbContext _context;
-        private static readonly Func<CompanyDbContext, string, Task<T>> GetById =
-            EF.CompileAsyncQuery((CompanyDbContext context, string id) =>
+        private Context.CompanyDbContext _context;
+        private static readonly Func<Context.CompanyDbContext, string, Task<T>> GetById =
+            EF.CompileAsyncQuery((Context.CompanyDbContext context, string id) =>
             context.Set<T>().FirstOrDefault(a => a.Id == id));
 
         public DbSet<T> Entity { get; set; }
 
         public void SetDbContextInstance(DbContext dbContext)
         {
-            _context = (CompanyDbContext)dbContext;
+            _context = (Context.CompanyDbContext)dbContext;
             Entity = _context.Set<T>();
         }
         public async Task AddAsync(T entity, CancellationToken cancellationToken)
         {
-            await Entity.AddAsync(entity,cancellationToken);
+            await Entity.AddAsync(entity, cancellationToken);
         }
 
         public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken)
         {
-            await Entity.AddRangeAsync(entities,cancellationToken);
+            await Entity.AddRangeAsync(entities, cancellationToken);
         }
 
 
@@ -37,7 +36,7 @@ namespace OnlineAccountingServer.Persistance.Repositories
 
         public async Task RemoveById(string id)
         {
-            T entity = await GetById(_context,id);
+            T entity = await GetById(_context, id);
         }
 
         public void RemoveRange(IEnumerable<T> entities)

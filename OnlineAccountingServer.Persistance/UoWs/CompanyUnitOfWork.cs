@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineAccountingServer.Domain;
+using OnlineAccountingServer.Domain.UoWs;
 using OnlineAccountingServer.Persistance.Context;
 
-namespace OnlineAccountingServer.Persistance
+namespace OnlineAccountingServer.Persistance.UoWs
 {
-    public sealed class UnitOfWork : IUnitOfWork
+    public sealed class CompanyUnitOfWork : ICompanyUnitOfWork
     {
         private CompanyDbContext _context;
 
