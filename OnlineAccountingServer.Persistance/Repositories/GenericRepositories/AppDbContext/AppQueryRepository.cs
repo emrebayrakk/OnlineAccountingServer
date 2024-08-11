@@ -50,13 +50,14 @@ namespace OnlineAccountingServer.Persistance.Repositories.GenericRepositories.Ap
             return await GetFirstCompiled(_context, isTracking);
         }
 
-        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression, bool isTracking = true)
+        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression,
+            CancellationToken cancellationToken, bool isTracking = true)
         {
-            T result;
+            T result = null;
             if (isTracking)
-                 result = await Entity.FirstOrDefaultAsync(expression);
+                 result = await Entity.Where(expression).FirstOrDefaultAsync(cancellationToken);
             else
-                 result = await Entity.AsNoTracking().FirstOrDefaultAsync(expression);
+                 result = await Entity.AsNoTracking().Where(expression).FirstOrDefaultAsync(cancellationToken);
             return result;
         }
 

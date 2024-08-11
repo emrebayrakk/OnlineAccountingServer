@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
 using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.MigrateCompanyDatabase;
+using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Queries.GetAllCompany;
 using OnlineAccountingServer.Presentation.Abstraction;
 
 namespace OnlineAccountingServer.Presentation.Controller
@@ -23,6 +24,14 @@ namespace OnlineAccountingServer.Presentation.Controller
         {
             MigrateCompanyDatabaseRequest migrateCompany = new MigrateCompanyDatabaseRequest();
             var response = await _mediator.Send(migrateCompany);
+            return Ok(response);
+
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllCompanies()
+        {
+            GetAllCompanyQuery request = new();
+            var response = await _mediator.Send(request);
             return Ok(response);
 
         }

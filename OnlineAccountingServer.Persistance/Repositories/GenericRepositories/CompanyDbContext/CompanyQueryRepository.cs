@@ -48,7 +48,7 @@ namespace OnlineAccountingServer.Persistance.Repositories.GenericRepositories.Co
             return await GetFirstCompiled(_context, isTracking);
         }
 
-        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression, bool isTracking = true)
+        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression, CancellationToken cancellationToken, bool isTracking = true)
         {
             T result;
             if (isTracking)

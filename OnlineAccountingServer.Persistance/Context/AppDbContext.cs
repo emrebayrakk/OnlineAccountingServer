@@ -48,7 +48,7 @@ namespace OnlineAccountingServer.Persistance.Context
             public AppDbContext CreateDbContext(string[] args)
             {
                 var optionBuilder = new DbContextOptionsBuilder();
-                var connetionString = "Data Source=DESKTOP-P8EIC75;Initial Catalog=AccountingMasterDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+                var connetionString = "Data Source=DESKTOP-P87BUPQ;Initial Catalog=AccountingMasterDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
                 optionBuilder.UseSqlServer(connetionString);
                 return new AppDbContext(optionBuilder.Options);
             }

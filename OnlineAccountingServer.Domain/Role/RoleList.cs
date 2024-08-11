@@ -1,4 +1,5 @@
-﻿using OnlineAccountingServer.Domain.AppEntities.Identity;
+﻿using OnlineAccountingServer.Domain.AppEntities;
+using OnlineAccountingServer.Domain.AppEntities.Identity;
 
 namespace OnlineAccountingServer.Domain.Role
 {
@@ -31,6 +32,29 @@ namespace OnlineAccountingServer.Domain.Role
             #endregion
 
             return appRoles;
+        }
+
+        public static List<MainRole> GetStaticMainRoles()
+        {
+            List<MainRole> mainRoles = new List<MainRole>
+            {
+                new MainRole(
+                    Guid.NewGuid().ToString(),
+                    "Admin",
+                    null,
+                    true),
+                new MainRole(
+                    Guid.NewGuid().ToString(),
+                    "Yönetici",
+                    null,
+                    true),
+                new MainRole(
+                    Guid.NewGuid().ToString(),
+                    "Kullanıcı",
+                    null,
+                    true),
+            };
+            return mainRoles;
         }
 
         #region RoleCodeAndNames

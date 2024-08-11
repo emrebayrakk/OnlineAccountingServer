@@ -32,6 +32,11 @@ namespace OnlineAccountingServer.Persistance.Services.AppServices
             await _appUnitOfWork.SaveChangesAsync(cancellationToken);
         }
 
+        public IQueryable<Company> GetAll()
+        {
+            return _companyQueryRepository.GetAll();
+        }
+
         public async Task<Company?> GetCompanyByName(string name)
         {
             return await _companyQueryRepository.GetFirstByExpression(a=>a.Name == name);
