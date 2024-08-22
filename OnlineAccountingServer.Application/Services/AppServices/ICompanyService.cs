@@ -1,7 +1,7 @@
 ﻿using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
 using OnlineAccountingServer.Domain.AppEntities;
 
-namespace OnlineAccountingServer.Application.Services.AppService
+namespace OnlineAccountingServer.Application.Services.AppServices
 {
     public interface ICompanyService
     {

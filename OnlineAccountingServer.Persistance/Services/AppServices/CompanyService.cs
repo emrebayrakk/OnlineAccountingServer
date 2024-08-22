@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities;
 using OnlineAccountingServer.Domain.Repositories.AppDbContext.CompanyRepositories;
 using OnlineAccountingServer.Domain.UoWs;

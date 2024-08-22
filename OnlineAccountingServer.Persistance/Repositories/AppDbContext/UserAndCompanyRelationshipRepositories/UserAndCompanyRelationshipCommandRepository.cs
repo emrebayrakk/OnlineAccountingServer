@@ -1,0 +1,10 @@
+using OnlineAccountingServer.Domain.AppEntities;
+using OnlineAccountingServer.Persistance.Repositories.GenericRepositories.AppDbContext;
+using OnlineAccountingServer.Domain.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
+
+namespace OnlineAccountingServer.Persistance.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
+
+public class UserAndCompanyRelationshipCommandRepository : AppCommandRepository<UserAndCompanyRelationship>, IUserAndCompanyRelationshipCommandRepository
+{
+    public UserAndCompanyRelationshipCommandRepository(Persistance.Context.AppDbContext context) : base(context){ }
+}

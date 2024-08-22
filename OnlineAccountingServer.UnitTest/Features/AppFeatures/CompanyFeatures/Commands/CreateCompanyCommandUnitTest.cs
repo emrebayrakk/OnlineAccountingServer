@@ -1,6 +1,6 @@
 ﻿using Moq;
 using OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities;
 using Shouldly;
 

@@ -1,5 +1,5 @@
 ﻿using OnlineAccountingServer.Application.Messaging;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 
 namespace OnlineAccountingServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Application.Messaging;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;

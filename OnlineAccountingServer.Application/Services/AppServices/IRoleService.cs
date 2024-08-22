@@ -2,7 +2,7 @@
 using OnlineAccountingServer.Application.Features.RoleFeature.Commands.UpdateRole;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
 
-namespace OnlineAccountingServer.Application.Services.AppService
+namespace OnlineAccountingServer.Application.Services.AppServices
 {
     public interface IRoleService
     {

@@ -1,0 +1,10 @@
+using OnlineAccountingServer.Domain.AppEntities;
+using OnlineAccountingServer.Domain.Repositories.GenericRepositories.AppDbContext;
+
+
+namespace OnlineAccountingServer.Domain.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
+
+public interface IMainRoleAndRoleRelationshipCommandRepository : IAppCommandRepository<MainRoleAndRoleRelationship>
+{
+
+}

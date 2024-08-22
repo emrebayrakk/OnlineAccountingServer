@@ -1,6 +1,6 @@
 ﻿using OnlineAccountingServer.Application.Features.AppFeatures.MainRoleFeaatures.Commands.CreateRole;
 using OnlineAccountingServer.Application.Messaging;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities;
 
 namespace OnlineAccountingServer.Application.Features.AppFeatures.MainRoleFeaatures.Commands.CreateMainRole

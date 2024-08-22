@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using OnlineAccountingServer.Application.Messaging;
-using OnlineAccountingServer.Application.Services.AppService;
+using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
 
 namespace OnlineAccountingServer.Application.Features.RoleFeature.Queries.GetAllRoles

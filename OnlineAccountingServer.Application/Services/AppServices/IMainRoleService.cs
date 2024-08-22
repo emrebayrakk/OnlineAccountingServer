@@ -1,7 +1,7 @@
 ﻿using Azure.Core;
 using OnlineAccountingServer.Domain.AppEntities;
 
-namespace OnlineAccountingServer.Application.Services.AppService
+namespace OnlineAccountingServer.Application.Services.AppServices
 {
     public interface IMainRoleService
     {
