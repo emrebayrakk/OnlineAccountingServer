@@ -16,8 +16,8 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.MainRoleAndUse
 
         public async Task<CreateMainRoleAndUserRLCommandResponse> Handle(CreateMainRoleAndUserRLCommand request, CancellationToken cancellationToken)
         {
-            var checkData = _mainRoleAndUserRelationshipService.GetByUserIdCompanyIdAndMainRoleId
-                (request.userId, request.companyId, request.mainRoleId);
+            var checkData = await _mainRoleAndUserRelationshipService.GetByUserIdCompanyIdAndMainRoleId
+                (request.userId, request.companyId, request.mainRoleId, cancellationToken);
             if (checkData is not null) throw new Exception("Error");
 
             MainRoleAndUserRelationship mainRoleAndUserRelationship = new(

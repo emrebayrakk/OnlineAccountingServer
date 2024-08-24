@@ -47,6 +47,7 @@ namespace OnlineAccountingServer.WebApi.Configurations
                 services.AddScoped<IMainRoleAndUserRelationshipService, MainRoleAndUserRelationshipService>();
                 services.AddScoped<IUserAndCompanyRelationshipService, UserAndCompanyRelationshipService>();
                 services.AddScoped<IMainRoleAndRoleRelationshipService, MainRoleAndRoleRelationshipService>();
+                services.AddScoped<IAuthService, AuthService>();
                 //AppServiceDISpot
                 #endregion
             #endregion

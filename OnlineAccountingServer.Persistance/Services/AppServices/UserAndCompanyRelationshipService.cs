@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities;
 using OnlineAccountingServer.Domain.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
@@ -33,6 +34,11 @@ public class UserAndCompanyRelationshipService : IUserAndCompanyRelationshipServ
     {
 
         return await _queryRepository.GetFirstByExpression(a => a.AppUserId == userId && a.CompanyId == companyId);
+    }
+
+    public async Task<IList<UserAndCompanyRelationship>> GetCompanyListByUserIdAsync(string userId)
+    {
+        return await _queryRepository.GetWhere(a => a.AppUserId == userId).Include("Company").ToListAsync();
     }
 
     public async Task RemoveByIdAsync(string id)

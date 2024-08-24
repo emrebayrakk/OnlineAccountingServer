@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using OnlineAccountingServer.Application.Abstractions;
 using OnlineAccountingServer.Domain.AppEntities.Identity;
+using OnlineAccountingServer.Domain.Dtos;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -21,13 +22,13 @@ namespace OnlineAccountingServer.Infrasturcture.Authentication
             _userManager = userManager;
         }
 
-        public async Task<string> CreateTokenAsync(AppUser user, List<string> roles)
+        public async Task<TokenRefreshTokenDto> CreateTokenAsync(AppUser user)
         {
             var claims = new Claim[]{
                 new Claim(JwtRegisteredClaimNames.Sub, user.NameLastName),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(ClaimTypes.Authentication, user.Id),
-                new Claim(ClaimTypes.Role, String.Join(",",roles)),
+                //new Claim(ClaimTypes.Role, String.Join(",",roles)),
             };
 
             DateTime expires = DateTime.Now.AddDays(1);
@@ -48,7 +49,7 @@ namespace OnlineAccountingServer.Infrasturcture.Authentication
             user.RefreshTokenExpires = expires;
             await _userManager.UpdateAsync(user);
 
-            return token;
+            return new(token,refreshToken,user.RefreshTokenExpires);
         }
     }
 }

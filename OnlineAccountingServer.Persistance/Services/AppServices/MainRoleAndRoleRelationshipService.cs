@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using OnlineAccountingServer.Application.Services.AppServices;
 using OnlineAccountingServer.Domain.AppEntities;
 using OnlineAccountingServer.Domain.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
@@ -30,7 +31,7 @@ public class MainRoleAndRoleRelationshipService : IMainRoleAndRoleRelationshipSe
         return _queryRepository.GetAll();
     }
 
-    public async Task<MainRoleAndRoleRelationship> GetById(string id)
+    public async Task<MainRoleAndRoleRelationship> GetByIdAsync(string id)
     {
         return await _queryRepository.GetById(id);
     }
@@ -53,5 +54,10 @@ public class MainRoleAndRoleRelationshipService : IMainRoleAndRoleRelationshipSe
     {
         _commandRepository.Update(mainRoleAndRoleRelationship);
         await _appUnitOfWork.SaveChangesAsync();
+    }
+
+    public async Task<IList<MainRoleAndRoleRelationship>> GetByMainRoleIdForGetRolesAsync(string id)
+    {
+        return await _queryRepository.GetWhere(a => a.MainRoleId == id).Include("AppRole").ToListAsync();
     }
 }

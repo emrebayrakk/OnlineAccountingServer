@@ -28,10 +28,15 @@ public class MainRoleAndUserRelationshipService : IMainRoleAndUserRelationshipSe
         return await _mainRoleAndUserRelationshipQueryRepository.GetById(id);
     }
 
-    public async Task<MainRoleAndUserRelationship> GetByUserIdCompanyIdAndMainRoleId(string userId, string companyId, string mainRoleId)
+    public async Task<MainRoleAndUserRelationship> GetByUserIdCompanyIdAndMainRoleId(string userId, string companyId, string mainRoleId , CancellationToken cancellationToken)
     {
         return await _mainRoleAndUserRelationshipQueryRepository.GetFirstByExpression(a =>
-        a.UserId == userId && a.CompanyId == companyId && a.MainRoleId == mainRoleId);
+        a.UserId == userId && a.CompanyId == companyId && a.MainRoleId == mainRoleId, cancellationToken);
+    }
+
+    public async Task<MainRoleAndUserRelationship> GetRolesByUserIdAndCompanyId(string userId, string companyId)
+    {
+        return await _mainRoleAndUserRelationshipQueryRepository.GetFirstByExpression(a => a.UserId == userId && a.CompanyId == companyId,default);
     }
 
     public async Task RemoveByIdAsync(string id)
