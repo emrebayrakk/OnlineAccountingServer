@@ -44,7 +44,8 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.AuthFeatures.C
                 UserId: user.Id,
                 NameLastName: user.NameLastName,
                 Companies: companyDtos,
-                Company: companyDtos[0]
+                Company: companyDtos[0],
+                Year: DateTime.Now.Year
                 );
             return response;
         }

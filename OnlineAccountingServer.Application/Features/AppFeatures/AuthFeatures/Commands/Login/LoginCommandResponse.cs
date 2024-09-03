@@ -8,6 +8,7 @@ namespace OnlineAccountingServer.Application.Features.AppFeatures.AuthFeatures.C
          string NameLastName,
          TokenRefreshTokenDto Token,
          IList<CompanyDto> Companies,
-         CompanyDto Company
+         CompanyDto Company,
+         int Year
          );
 }
